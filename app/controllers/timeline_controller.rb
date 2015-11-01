@@ -14,4 +14,9 @@ class TimelineController < ApplicationController
         Comment.create(user_id: current_user.id, blog_id: params[:blog_id], msg: params[:comment])
         redirect_to :root
     end
+    
+    
+    def userfeed
+        @blogs = Blog.order(:user_id).reverse
+    end
 end

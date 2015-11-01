@@ -1,0 +1,38 @@
+<h1>UserFeed</h1>
+<%=form_tag '/write', method: 'post' do %>
+    <div class="form-group">
+         <textarea name="naeyong" class="form-control" row="3"></textarea>
+    </div>
+       <div class="form-group">
+         <input type="submit" class="btn-success">
+    </div>
+   
+   
+<% end %>
+<ul>
+    <% @blogs.each do |b| %>
+    <li>
+        <p class = "bg-info"><%=b.user.email%> :</p>
+        <div class="well">
+            <%=b.content%>
+        </div>
+    
+    
+        <%=form_tag '/comment', class: "form-inline" do%>
+        <input type="hidden" name="blog_id" value="<%=b.id%>">
+        <div class="form-group">
+                <input type="text" name="comment" class="form-control">
+        </div>
+        <div class="form-group">
+                <input type="submit" class="btn btn-primary">
+        </div>
+
+        <% end %>
+        <ul>
+        <% b.comments.each do |c| %>
+            <li><p class = "bg-danger"><%=c.user.email%> : <%=c.msg%><p></p></li>
+        <% end %>
+        </ul>
+    </li>
+    <% end %>
+</ul>

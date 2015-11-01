@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'timeline#index'
   post '/write' => 'timeline#write'
   post '/comment' => 'timeline#comment'
+  get '/userfeed' => 'timeline#userfeed'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

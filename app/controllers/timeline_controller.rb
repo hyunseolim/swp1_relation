@@ -17,6 +17,12 @@ class TimelineController < ApplicationController
     
     
     def userfeed
-        @blogs = Blog.order(:user_id).reverse
+        @users = User.all
     end
+    
+   def mine
+        @me = User.find(params[:id])
+        @blogs = Blog.where(user_id: params[:id]).reverse
+   end
+    
 end

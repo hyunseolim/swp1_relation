@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/write' => 'timeline#write'
   post '/comment' => 'timeline#comment'
   get '/userfeed' => 'timeline#userfeed'
+  get '/mine' => 'timeline#mine'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
